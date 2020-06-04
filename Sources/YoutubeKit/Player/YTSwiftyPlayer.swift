@@ -5,7 +5,15 @@
 //  Created by Ryo Ishikawa on 12/30/2017
 //  Copyright © 2017 Ryo Ishikawa. All rights reserved.
 //
+
+#if canImport(UIKit)
 import UIKit
+#endif
+
+#if canImport(Cocoa)
+import Cocoa
+#endif
+
 import WebKit
 
 /**
@@ -63,9 +71,12 @@ open class YTSwiftyPlayer: WKWebView {
     
     static private var defaultConfiguration: WKWebViewConfiguration {
         let config = WKWebViewConfiguration()
+
+        #if canImport(UIKit)
         config.allowsAirPlayForMediaPlayback = true
         config.allowsInlineMediaPlayback = true
         config.allowsPictureInPictureMediaPlayback = true
+        #endif
         return config
     }
     
@@ -252,9 +263,12 @@ open class YTSwiftyPlayer: WKWebView {
     // MARK: - Private Methods
     
     private func commonInit() {
+
+        #if canImport(UIKit)
         scrollView.bounces = false
         scrollView.isScrollEnabled = false
         isUserInteractionEnabled = true
+        #endif
         translatesAutoresizingMaskIntoConstraints = false
     }
     

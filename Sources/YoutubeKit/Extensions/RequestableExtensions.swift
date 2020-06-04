@@ -4,6 +4,9 @@
 //
 //  Created by Ryo Ishikawa on 12/30/2017
 //
+#if canImport(Cocoa)
+import Cocoa
+#endif
 
 extension Requestable {
     
